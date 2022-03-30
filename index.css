@@ -45,21 +45,40 @@ input:focus-visible {
 }
 
 form {
-    width: 60%;
+    width: 70%;
+    display: flex;
 }
 
 #name-search {
+    box-sizing: border-box;
     width: 100%;
-    height: 60px;
     color: #0e1f62;
     font-weight: 500;
     margin-left: auto;
     margin-right: auto;
     font-size: 2rem;
     font-family: Montserrat, Arial;
-    padding: 0 20px;
+    padding: 10px 20px;
     border: thick double #ffcd02;
     border-radius: 3px;
+}
+
+button {
+    width: 25%;
+    font-size: 1.5rem;
+    color: #0e1f62;
+    font-family: Montserrat, Arial;
+    font-weight: 500;
+    border: thick double #ffcd02;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+button:hover {
+    background-color: #2a71ff;
+    border: thick solid #0e1f62;
+    cursor: pointer;
+    color: #ffcd02;
 }
 
 #cute-pokemons {

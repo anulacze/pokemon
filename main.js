@@ -1,4 +1,5 @@
 const searchForm = document.getElementById('search-form');
+const pokemonInfo = document.querySelector('.pokemon-info');
 
 searchForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -8,7 +9,6 @@ searchForm.addEventListener('submit', (event) => {
     const searchedPokemonType = document.getElementById('searched-pokemon-type');
     const searchedPokemonAbilities = document.getElementById('searched-pokemon-abilities');
     const searchedPokemonMoves = document.getElementById('searched-pokemon-moves');
-    const pokemonInfo = document.querySelector('.pokemon-info');
     const searchInputValue = searchInput.value.toLowerCase();
     console.log(searchInputValue);
     const searchUrl = `https://pokeapi.co/api/v2/pokemon/${searchInputValue}`;
@@ -31,11 +31,15 @@ searchForm.addEventListener('submit', (event) => {
             console.log(data)
             document.getElementById('not_found').style.display = 'none';
             
-            searchedPokemon.textContent = searchInput.value.toUpperCase();
+            searchedPokemon.textContent = searchInput.value.toUpperCase().trim();
             const pokemonImg = document.createElement('img');
-            pokemonImg.src = data.sprites.front_default;
-            searchedPokemonImg.replaceChildren(pokemonImg);
-
+            if (data.sprites.front_default) {
+                pokemonImg.src = data.sprites.front_default;
+                searchedPokemonImg.replaceChildren(pokemonImg);
+            } else {
+                pokemonImg.src = 'images/questionmark.png';
+                searchedPokemonImg.replaceChildren(pokemonImg);
+            }
             let arrOfTypes = data.types.map(element => {
                 return element.type.name;
             })
@@ -70,4 +74,32 @@ searchForm.addEventListener('submit', (event) => {
             searchedPokemon.scrollIntoView({behavior: "smooth"});
 
         })
+})
+
+
+
+
+const buttonRandom = document.getElementById('fetch-random-pokemon');
+
+buttonRandom.addEventListener('click', (event) => {
+    const randomPokemon = Math.floor(Math.random() * 1126);
+    const randomPokemonUrl = `https://pokeapi.co/api/v2/pokemon/${randomPokemon}`;
+
+    fetch(randomPokemonUrl).then((response) => {
+        if (response.ok) {
+            return response.json()
+            } else {
+                throw new Error("Something's wrong :(");
+            }
+    })
+    .catch(error => {
+        console.log(error.message);
+        pokemonInfo.style.display = 'none';
+        document.getElementById('not_found').textContent = "Something's wrong :(";
+        document.getElementById('not_found').style.display = 'block';
+        document.getElementById('not_found').scrollIntoView({behavior: "smooth"});
+    })
+    .then((data) => {
+        
+    })
 })
