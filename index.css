@@ -1,6 +1,9 @@
+* {
+    font-family: Montserrat, Arial;
+}
+
 html {
     background-color: #fcf8db;
-    font-family: Montserrat, Arial;
     color: #0e1f62;
 }
 
@@ -40,10 +43,6 @@ h1 {
     margin: 0 0 30px 0;
 }
 
-input:focus-visible {
-    outline-color: #2a71ff;
-}
-
 form {
     width: 70%;
     display: flex;
@@ -57,17 +56,16 @@ form {
     margin-left: auto;
     margin-right: auto;
     font-size: 2rem;
-    font-family: Montserrat, Arial;
     padding: 10px 20px;
     border: thick double #ffcd02;
     border-radius: 3px;
+    outline-color: #2a71ff;
 }
 
 button {
     width: 25%;
     font-size: 1.5rem;
     color: #0e1f62;
-    font-family: Montserrat, Arial;
     font-weight: 500;
     border: thick double #ffcd02;
     border-radius: 3px;
@@ -89,7 +87,7 @@ button:hover {
 }
 
 
-
+/*-------------POKEMON INFO SECTION-------------*/
 
 .pokemon-info {
     display: none;
@@ -115,7 +113,6 @@ h2 {
 #grass-img {
     width: 170px;
     height: auto;
-    margin-top: 0;
     padding-right: 10px;
 }
 
