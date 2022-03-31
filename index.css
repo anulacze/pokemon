@@ -40,7 +40,8 @@ h1 {
 
 .top-content p {
     font-size: 2rem;
-    margin: 0 0 30px 0;
+    margin: 0 20px 30px 20px;
+    text-align: center;
 }
 
 form {
@@ -108,6 +109,7 @@ h2 {
     width: 150px;
     height: auto;
     margin-bottom: -45px;
+    position: relative; /*This makes the image render in front of the grass*/
 }
 
 #grass-img {
@@ -124,6 +126,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+#searched-pokemon-abilities {
+    text-align: center;
+}
+
 .pokemon-info ul {
     margin: 0 0 20px 0;
 }
@@ -137,4 +143,25 @@ h3 {
     display: none;
     font-size: 3rem;
     text-align: center;
+}
+
+/*-------------MEDIA QUERY-------------*/
+
+@media screen and (max-width: 800px) {
+    form {
+        display: block;
+    }
+
+    #name-search {
+        text-align: center;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
 }
